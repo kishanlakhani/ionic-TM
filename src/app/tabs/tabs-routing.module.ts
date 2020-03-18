@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { CardShowPageModule } from '../card-show/card-show.module';
+import { LoginPageModule } from '../login/login.module';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
     children: [
       {
@@ -18,7 +20,25 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab2',
+        path:'home',
+        children :[
+          {
+            path:'',
+            loadChildren: ()=>import('../card-show/card-show.module').then(m => CardShowPageModule)
+          }
+        ]
+      },
+      {
+        path:'auth',
+        children :[
+          {
+            path:'',
+            loadChildren: ()=>import('../login/login.module').then(m => LoginPageModule)
+          }
+        ]
+      },
+      {
+        path: 'category',
         children: [
           {
             path: '',
@@ -38,17 +58,28 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'profile',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../profile/profile.module').then(m=> m.ProfilePageModule)
+          }
+        ]
+      },
+      
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
       }
     ]
   },
-  {
-    path: '',
-    redirectTo: '/tabs/tab1',
-    pathMatch: 'full'
-  }
+  // {
+  //   path: '',
+  //   redirectTo: '/tabs/tab1',
+  //   pathMatch: 'full'
+  // }
 ];
 
 @NgModule({

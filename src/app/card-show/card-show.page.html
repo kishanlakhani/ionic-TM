@@ -1,0 +1,28 @@
+<!-- <ion-button size="small" (click)="()">Go to Category</ion-button> -->
+<ion-button size="large" (click)="onGoToCategory()" color="dark">Go to Category</ion-button>
+
+  <ion-toolbar>
+    <ion-title>{{ categoryId }}</ion-title>
+  </ion-toolbar>
+
+<ion-content>
+ <ion-grid>
+  <ion-row>
+    <ion-col>
+      <div>
+        <ion-card *ngFor="let post of postList" (click)="onPostCardClick(post.key)">
+          <img [src]="post['imageUrl']" height="200px" width="100%" />
+          <ion-card-header text-center>
+            <ion-card-title>
+              {{post.title}}
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <!-- {{ post.description }} -->
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

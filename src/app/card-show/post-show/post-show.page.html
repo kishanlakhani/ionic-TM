@@ -1,0 +1,32 @@
+<ion-button size="large" (click)="onGoback()" color="dark">Go Back</ion-button>
+<ion-toolbar>
+  <ion-title><h1>{{ post.title }}</h1></ion-title>
+</ion-toolbar>
+
+
+<ion-content>
+  <!-- <ion-button size="small"  class="ion-margin-left" >Go Back</ion-button> -->
+<ion-grid>
+    <ion-row>
+      <ion-col sizeLg="8" sizeMd="8" sizeXs="8">
+
+        <ion-row>
+          <ion-col sizeLg="8" sizeMd="8" sizeXs="12">
+            <ion-img [src]="post['imageUrl']"></ion-img>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col sizeLg="8" sizeMd="8" sizeXs="12">
+            <p>{{ post.description }}</p>
+          </ion-col>
+        </ion-row>
+
+        
+
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>
+
